@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'hello',
     'accounts',
     'django_forms_bootstrap',
+    'paypal_store',
+    'products',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -129,12 +131,17 @@ USE_TZ = True
 
 
 AUTH_USER_MODEL = 'accounts.User'
-AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', 'accounts.backends.EmailAuth',)
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_DIV8qw9zl2qsHD91rt4OOKdU')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_aMIBP8ijJxhnN8wd9XJbFWfd')
 
 
 STATIC_URL = '/static/'
+
+#paypal_store settings
+SITE_URL = 'http://127.0.0.1:8000'
+PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
+PAYPAL_RECEIVER_EMAIL = 'hfitzgerald-facilitator@seabreeze.ie'
 
 
