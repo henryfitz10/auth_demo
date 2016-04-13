@@ -3,6 +3,9 @@ from django.db import models
 from django.conf import settings
 from paypal.standard.forms import PayPalPaymentsForm
 
+
+
+
 # Create your models here.
 
 
@@ -10,6 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
 
     @property
     def paypal_form(self):
@@ -27,4 +31,13 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+
+
+
+
+
+
+
 

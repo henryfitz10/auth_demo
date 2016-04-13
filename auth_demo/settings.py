@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'paypal_store',
     'products',
+    'paypal.standard.ipn',
+    'magazines',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -143,5 +145,9 @@ STATIC_URL = '/static/'
 SITE_URL = 'http://127.0.0.1:8000'
 PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
 PAYPAL_RECEIVER_EMAIL = 'hfitzgerald-facilitator@seabreeze.ie'
+
+#product images
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
